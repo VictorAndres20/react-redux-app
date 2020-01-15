@@ -14,6 +14,8 @@ class TestOne extends React.Component{
                 username: 'root',
                 password: 'root123'
             }
+        }, () => {
+            alert("Go to home");
         });
     }
 

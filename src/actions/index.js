@@ -3,7 +3,7 @@ import {loginService, validateLogin} from '../_services/LoginService';
 export const LOGIN_ACTION = 'LOGIN';
 export const SET_SESSION_ACTION = 'SET_SESSION';
 
-export const login = payload => {
+export const login = (payload, navigate) => {
     return dispatch => {
         // You can call more actions here before execute fetch.
         // dispatch(someAction(payload))
@@ -13,6 +13,7 @@ export const login = payload => {
             if(validateLogin(data)){
                 dispatch(setLogin({ok: true, msg: data.content.message}));
                 dispatch(setSession({ok: true, token: data.content.token}));
+                if(typeof navigate === 'function') navigate();
             } else
                 dispatch(setLogin({ok: false, msg: data.message}));
         })
