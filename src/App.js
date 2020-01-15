@@ -1,10 +1,11 @@
 import React from 'react';
 
-import TestModule from './componets/modules/test';
+import LoginModule from './componets/modules/login';
+//import TestModule from './componets/modules/test';
 
 function App() {
   return (
-      <TestModule />
+      <LoginModule />
   );
 }
 

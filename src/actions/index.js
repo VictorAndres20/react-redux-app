@@ -1,4 +1,5 @@
 import {loginService, validateLogin} from '../_services/LoginService';
+import {batch} from 'react-redux';
 
 export const LOGIN_ACTION = 'LOGIN';
 export const SET_SESSION_ACTION = 'SET_SESSION';
@@ -8,16 +9,23 @@ export const login = (payload, navigate) => {
         // You can call more actions here before execute fetch.
         // dispatch(someAction(payload))
 
+        // Use batch from react-redux to call two or more dis
+        // dispatch(someAction(payload))
+        dispatch(setSession({loaded: false}));
         loginService(payload.body)
         .then(data => {
             if(validateLogin(data)){
-                dispatch(setLogin({ok: true, msg: data.content.message}));
-                dispatch(setSession({ok: true, token: data.content.token}));
+                dispatch(setSession({
+                    ok: true, 
+                    loaded: true,
+                    msg: data.content.message, 
+                    token: data.content.token
+                }));
                 if(typeof navigate === 'function') navigate();
             } else
-                dispatch(setLogin({ok: false, msg: data.message}));
+                dispatch(setSession({loaded: true, msg: (data.content == null ? data.message : data.content.message)}));
         })
-        .catch(err => dispatch(setLogin({ok: false, msg: err.message})));
+        .catch(err => dispatch(setSession({loaded: true, msg: err.message})));
 
         return;
     };

@@ -1,12 +1,14 @@
 import {SET_SESSION_ACTION} from '../actions';
 
 const defaultState = {
-    ok: false,
+    ok: false, 
+    loaded: false,
+    msg: '', 
     token: ''
 };
 
-const buildState = (state, {ok, token}) => {
-    return {...state, ok, token};
+const buildState = (state, {ok, loaded, msg, token}) => {
+    return {...state, ok, loaded, msg, token};
 };
 
 const session = (state = defaultState, action) => {

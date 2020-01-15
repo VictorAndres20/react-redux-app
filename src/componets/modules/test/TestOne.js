@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Form, Col, Row, Button} from 'react-bootstrap';
-import {setTestOne} from '../../../actions';
-import {login} from '../../../actions';
+import {login, setTestOne} from '../../../actions';
 
 class TestOne extends React.Component{    
 
@@ -22,7 +21,6 @@ class TestOne extends React.Component{
     render(){
         console.log("12",this.props.testOne);
         console.log("13",this.props.session);
-        console.log("14",this.props.loginState);
         return(
             <Form>
                 <Form.Group as={Row} controlId="formHorizontalText">
@@ -52,7 +50,6 @@ class TestOne extends React.Component{
 const mapStateToProps = (state) => ({
     testOne: state.testOne,
     session: state.session,
-    loginState: state.loginState
 });
 
 
