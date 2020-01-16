@@ -1,4 +1,4 @@
-import {TEST_ONE_ACTION} from '../actions';
+import {TEST_ONE_ACTION} from '../actions/testOne.actions';
 
 const defaultState = {
     text: ''

@@ -1,4 +1,4 @@
-import {SET_SESSION_ACTION} from '../actions';
+import {SET_SESSION_ACTION} from '../actions/session.actions';
 
 const defaultState = {
     ok: false, 
@@ -22,4 +22,3 @@ const session = (state = defaultState, action) => {
 }
 
 export default session;
-
