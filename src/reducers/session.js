@@ -2,7 +2,7 @@ import {SET_SESSION_ACTION} from '../actions/session.actions';
 
 const defaultState = {
     ok: false, 
-    loaded: false,
+    loaded: true,
     msg: '', 
     token: ''
 };
