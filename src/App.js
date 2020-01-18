@@ -1,11 +1,10 @@
 import React from 'react';
 
-import LoginModule from './componets/modules/login';
-//import TestModule from './componets/modules/test';
+import {AppRoute} from './componets/routes/appRoutes';
 
 function App() {
   return (
-      <LoginModule />
+      <AppRoute />
   );
 }
 

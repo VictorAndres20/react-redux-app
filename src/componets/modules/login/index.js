@@ -12,7 +12,7 @@ class LoginModule extends React.Component {
             password: document.getElementById('password').value
         }
         this.props.login({body}, () => {
-            alert("Go to home");
+            this.props.history.push('/users/');
         });
     }
     
