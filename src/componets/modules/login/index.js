@@ -2,14 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {login} from '../../../actions/session.actions';
 import {Container, Row, Col} from 'react-bootstrap';
-import Login from './Login';
+import LoginReduxForm from '../../containers/forms/loginForm';
+import HeaderLogin from './HeaderLogin';
 
 class LoginModule extends React.Component {
 
-    send = () => {
+    send = (values) => {
+        let {username, password} = values;
         let body = {
-            username: document.getElementById('username').value,
-            password: document.getElementById('password').value
+            username,
+            password
         }
         this.props.login({body}, () => {
             this.props.history.push('/users/');
@@ -22,8 +24,21 @@ class LoginModule extends React.Component {
             <Container style={{marginTop: 30 + 'px'}}>
                 <Row>
                     <Col sm={4}></Col>
-                    <Col sm={4}>
-                        <Login loaded={this.props.session.loaded} login={this.send} />
+                    <Col className = "col-sm-4 text-center" style={{boxShadow: '0 4px 18px 0 rgba(0,0,0,0.2)'}}>
+                        <HeaderLogin />
+                        <LoginReduxForm 
+                            /** Custome props */
+                            loaded={this.props.session.loaded} 
+                            
+                            /** Redux Form props */
+                            // Default values in form.
+                            // props must be equals as 'name' attribute
+                            //username={"myDefaultUsername"}
+                            //If you have a complete object from reducer,
+                            //use copy props to use all atributes
+                            //{...this.props.customer}
+                            //To handle submit, must be onSubmit
+                            onSubmit={this.send} />
                     </Col>
                     <Col sm={4}></Col>
                 </Row>

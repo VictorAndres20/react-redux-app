@@ -1,5 +1,4 @@
 import React from 'react';
-import SpinnerApp from '../../containers/spinner';
 import { Form, Icon, Input, Button} from 'antd';
 
 const Login = (props) => {
@@ -35,7 +34,11 @@ const displayButton = (props) => {
     );
   } else {
     return(
-      <Button onClick={() => props.login()} type="primary" htmlType="button" className="login-form-button">
+      <Button style={{width: 100 + '%'}} 
+        onClick={() => props.login()} 
+        type="primary" 
+        htmlType="button" 
+        className="login-form-button">
           Log in
       </Button>
     );
