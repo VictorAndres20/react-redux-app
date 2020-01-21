@@ -3,6 +3,7 @@ import {reduxForm, Field} from 'redux-form';
 import {setPropsAsInitial} from '../../../_hoc/wrapComponentHoc';
 import { Form, Icon, Input, Button} from 'antd';
 import {isRequired} from '../../../_helpers/redux-form-valiations';
+import SpinnerApp from '../../containers/spinner';
 
 const LoginForm = (props) => {
     let {handleSubmit} = props;
@@ -52,9 +53,7 @@ const TextPassword = ({input, meta}) => (
 const displayButton = (props) => {
     console.log(props);
     if(! props.loaded){
-        return(
-        <div>Loading...</div>
-        );
+        return(<SpinnerApp />);
     } else {
         return(
         <Button

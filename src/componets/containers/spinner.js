@@ -1,10 +1,6 @@
 import React from 'react';
-import {Spinner} from 'react-bootstrap';
+import {Spin} from 'antd';
 
-const SpinnerApp = () => {
-    return(
-        <Spinner size='sm' color='#000' />
-    );
-}
+const SpinnerApp = () => (<Spin size="large" />);
 
 export default SpinnerApp;
